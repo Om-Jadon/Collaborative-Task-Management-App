@@ -11,7 +11,9 @@ function SignupPage() {
         backgroundPosition: "center",
       }}
     >
-      <SignUp />
+      <div className="bg-black bg-opacity-60 h-full w-full flex justify-center items-center">
+        <SignUp />
+      </div>
     </div>
   );
 }

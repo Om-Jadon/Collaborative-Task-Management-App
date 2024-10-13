@@ -35,17 +35,17 @@ function SignUp() {
 
   return (
     <form
-      className="bg-gray-800 p-8 rounded-lg shadow-md w-full max-w-md"
+      className="bg-[#222831] p-8 rounded-lg shadow-md w-full max-w-md"
       onSubmit={handleSubmit}
     >
-      <h2 className="text-3xl text-center text-white font-bold mb-4">
+      <h2 className="text-3xl text-center text-[#EEEEEE] font-bold mb-6">
         Sign Up
       </h2>
       {error && <p className="text-red-500 text-center mb-4">{error}</p>}
       <div className="form-group mb-4">
         <label
           htmlFor="username"
-          className="block text-gray-300 font-bold mb-2"
+          className="block text-[#EEEEEE] font-bold mb-2"
         >
           Username
         </label>
@@ -55,11 +55,11 @@ function SignUp() {
           placeholder="Enter username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-700 text-white placeholder-gray-400"
+          className="w-full px-3 py-2 border border-[#6f747e] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00ADB5] bg-[#393E46] text-[#EEEEEE] placeholder-gray-400"
         />
       </div>
       <div className="form-group mb-4">
-        <label htmlFor="email" className="block text-gray-300 font-bold mb-2">
+        <label htmlFor="email" className="block text-[#EEEEEE] font-bold mb-2">
           Email
         </label>
         <input
@@ -68,13 +68,13 @@ function SignUp() {
           placeholder="Enter email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-700 text-white placeholder-gray-400"
+          className="w-full px-3 py-2 border border-[#6f747e] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00ADB5] bg-[#393E46] text-[#EEEEEE] placeholder-gray-400"
         />
       </div>
       <div className="form-group mb-4 relative">
         <label
           htmlFor="password"
-          className="block text-gray-300 font-bold mb-2"
+          className="block text-[#EEEEEE] font-bold mb-2"
         >
           Password
         </label>
@@ -84,7 +84,7 @@ function SignUp() {
           placeholder="Enter password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-700 text-white placeholder-gray-400"
+          className="w-full px-3 py-2 border border-[#6f747e] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00ADB5] bg-[#393E46] text-[#EEEEEE] placeholder-gray-400"
         />
         <button
           type="button"
@@ -97,7 +97,7 @@ function SignUp() {
       <div className="form-group mb-4 relative">
         <label
           htmlFor="confirmPassword"
-          className="block text-gray-300 font-bold mb-2"
+          className="block text-[#EEEEEE] font-bold mb-2"
         >
           Confirm Password
         </label>
@@ -107,7 +107,7 @@ function SignUp() {
           placeholder="Confirm password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-700 text-white placeholder-gray-400"
+          className="w-full px-3 py-2 border border-[#6f747e] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00ADB5] bg-[#393E46] text-[#EEEEEE] placeholder-gray-400"
         />
         <button
           type="button"
@@ -120,7 +120,7 @@ function SignUp() {
       <button
         type="submit"
         disabled={loading}
-        className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full bg-[#00ADB5] text-[#EEEEEE] py-2 rounded-lg hover:bg-[#00a1a8] focus:outline-none focus:ring-2 focus:ring-[#00ADB5]"
       >
         {loading ? "Loading..." : "Sign Up"}
       </button>

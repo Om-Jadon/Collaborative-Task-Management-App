@@ -76,7 +76,7 @@ router.post("/login", async (req, res) => {
     const token = jwt.sign(
       { id: existingUser._id, email: existingUser.email },
       process.env.JWT_SECRET,
-      { expiresIn: "1h" }
+      { expiresIn: "10d" }
     );
 
     // If password matches, return success message and token
@@ -91,6 +91,48 @@ router.get("/profile", authMiddleware, (req, res) => {
     msg: "This is a protected route",
     user: req.user,
   });
+});
+
+router.delete("/delete-account", authMiddleware, async (req, res) => {
+  try {
+    // Find and delete the user by ID
+    await User.findByIdAndDelete(req.user.id);
+
+    res.status(200).json({ msg: "Account deleted successfully" });
+  } catch (err) {
+    res.status(500).json({ msg: "Server error" });
+  }
+});
+
+router.put("/update-password", authMiddleware, async (req, res) => {
+  const { id, currentPassword, newPassword } = req.body;
+  if (!currentPassword || !newPassword) {
+    return res
+      .status(400)
+      .json({ msg: "Current and new passwords are required" });
+  }
+  try {
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(404).json({ msg: "User not found" });
+    }
+
+    const isMatch = await bcrypt.compare(currentPassword, user.password);
+    if (!isMatch) {
+      user;
+      return res.status(400).json({ msg: "Current password is incorrect" });
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(newPassword, salt);
+
+    user.password = hashedPassword;
+    await user.save();
+
+    res.status(200).json({ msg: "Password updated successfully" });
+  } catch (err) {
+    res.status(500).json({ msg: "Server error" });
+  }
 });
 
 export default router;
