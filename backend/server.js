@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import express from "express";
 import userRoutes from "./routes/userRoutes.js";
+import projectRoutes from "./routes/projectRoutes.js";
 import cors from "cors";
 
 // Load environment variables from .env file
@@ -32,6 +33,9 @@ const PORT = process.env.PORT || 3000;
 
 // Use the user routes
 app.use("/auth", userRoutes);
+
+// Use the project routes
+app.use("/projects", projectRoutes);
 
 // Global error handling middleware
 app.use((err, req, res, next) => {
